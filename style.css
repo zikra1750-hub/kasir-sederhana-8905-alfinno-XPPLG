@@ -1,0 +1,55 @@
+:root {
+      --bg:#f7f7f9;--card:#fff;--text:#1f2937;
+      --muted:#6b7280;--border:#e5e7eb;
+      --primary:#2563eb;--danger:#dc2626;--outline:#6b7280;
+    }
+    [data-theme="dark"] {
+      --bg:#0b1220;--card:#111827;--text:#e5e7eb;
+      --muted:#9ca3af;--border:#1f2937;
+      --primary:#60a5fa;--danger:#f87171;--outline:#9ca3af;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    .app-header,.app-footer{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:var(--card);border-bottom:1px solid var(--border)}
+    .app-footer{border-top:1px solid var(--border);border-bottom:none}
+    .container{max-width:960px;margin:20px auto;padding:0 16px}
+    .panel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px}
+    h1,h2{margin:0 0 12px}
+    .header-actions,.summary-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:10px 12px;cursor:pointer;font-weight:600}
+    .btn:hover{opacity:.92}
+    .btn-outline{background:transparent;color:var(--outline);border:1px solid var(--outline)}
+    .btn-danger{background:var(--danger)}
+    .btn-primary{background:var(--primary)}
+    .btn-sm{padding:6px 8px;font-size:.85rem;border-radius:6px}
+    .form-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .form-row{display:flex;flex-direction:column;gap:6px}
+    .form-row input{border:1px solid var(--border);border-radius:8px;padding:10px;background:transparent;color:var(--text)}
+    .form-row.actions{grid-column:span 12;display:flex;gap:8px;align-items:center}
+    #itemName{grid-column:span 6}
+    #itemPrice{grid-column:span 3}
+    #itemQty{grid-column:span 3}
+    .table-wrapper{overflow:auto;border:1px solid var(--border);border-radius:8px}
+    table{width:100%;border-collapse:collapse}
+    thead th{text-align:left;padding:10px;background:var(--bg);border-bottom:1px solid var(--border)}
+    tbody td{padding:10px;border-bottom:1px solid var(--border)}
+    tbody tr:hover{background:rgba(0,0,0,.03)}
+    .summary-grid{display:grid;gap:10px;grid-template-columns:repeat(12,1fr)}
+    .summary-row{grid-column:span 6;display:flex;align-items:center;justify-content:space-between;border:1px dashed var(--border);border-radius:8px;padding:10px}
+    .summary-row.total{grid-column:span 12;font-size:1.2rem;font-weight:700;border-style:solid}
+    .summary-row input[type="number"]{width:140px;border:1px solid var(--border);border-radius:8px;padding:8px;background:transparent;color:var(--text)}
+    .summary-actions{grid-column:span 12}
+    .print-area .receipt{border:1px solid var(--border);border-radius:8px;padding:12px;background:var(--card)}
+    .receipt-header,.receipt-footer{text-align:center}
+    .receipt-table{width:100%;border-collapse:collapse;margin-top:8px}
+    .receipt-table th,.receipt-table td{text-align:left;padding:8px;border-bottom:1px solid var(--border)}
+    .receipt-summary{margin-top:10px}
+    .receipt-summary .line{display:flex;justify-content:space-between;padding:6px 0}
+    .receipt-summary .line.total{font-weight:700}
+    @media print{
+      body{background:#fff}
+      .app-header,.container>.panel:not(.print-area),.app-footer{display:none!important}
+      .print-area{display:block;margin:0;padding:0;border:none;box-shadow:none}
+      .print-area .receipt{border:none;padding:0}
+      @page{size:A5 portrait;margin:10mm}
+    }
